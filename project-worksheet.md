@@ -6,7 +6,7 @@
 ## Project Description
 
 An rpg game built using pygame the goal is to get the basics of building out an rpg. The most logical way to approach this project is to learn the basic elements, consisting of establishing a window and clock, tile mapping and adding terrain, basic movement and key presses, jump and boundaries, character animation and sprites, Optimization, projectiles, enemies, collision and hit boxes, scoring and health bars, sound effects and music and wrapping up with finishing touches.
-The goal of this game is to allow users experiencing Imposter Syndrome to come play this game, and the end result of the game is essentially you either choosing to continue to play in Imp and Osters Kingdom, and allow the fatal syndrome to wreak havoc in the kingdom again.
+The goal of this game is to allow users experiencing Imposter Syndrome to come play this game, and the end result of the game is essentially you either choosing to continue to play in Imp and Osters Kingdom, and allow the fatal syndrome to wreak havoc in the kingdom again, or to take back your kingdom on Earth.
 
 ## Sources and Documentation
 https://www.pygame.org/docs/
