@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Inventory | H | 2hr | hr |
 | Potion and Spell Creation | H | 2hr | hr |
 | Google Play Store | H | 2hr | hr |
-| Google Play Store | H | 2hr | hr |
+
 
 
 
