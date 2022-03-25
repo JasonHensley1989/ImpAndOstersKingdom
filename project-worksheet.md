@@ -5,7 +5,7 @@
 
 ## Project Description
 
-An rpg game built using pygame the goal is to get the basics of building out an rpg. The most logical way to approach this project is to learn the basic elements, consisting of establishing a window and clock, basic movement and key presses, jump and boundaries, character animation and sprites, Optimization, projectiles, enemies, collision and hit boxes, scoring and health bars, sound effects and music and wrapping up with finishing touches
+An rpg game built using pygame the goal is to get the basics of building out an rpg. The most logical way to approach this project is to learn the basic elements, consisting of establishing a window and clock, tile mapping and adding terrain, basic movement and key presses, jump and boundaries, character animation and sprites, Optimization, projectiles, enemies, collision and hit boxes, scoring and health bars, sound effects and music and wrapping up with finishing touches
 
 ## Documentation
 https://www.pygame.org/docs/
