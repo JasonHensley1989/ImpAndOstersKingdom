@@ -21,14 +21,14 @@ class Game():
         # asset for ground terrain
         self.terrainsheet = Spritesheet('terrain1.png')
         # asset for character
-        self.character_spritesheet = Spritesheet('Alex_idle_16x16.png')
+        self.character_spritesheet = Spritesheet('Alex_run_16x16.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
         build_map(self, tilemap)
 
     # allows sprites to play and update
-    def  new(self, tilemap):
+    def new(self, tilemap):
         self.playing = True
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
