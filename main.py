@@ -25,7 +25,7 @@ class Game():
         # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
         # asset for enemy
-        self.enemy_spritesheet = Spritesheet('enemy.png')
+        self.enemy_spritesheet = Spritesheet('img/ClubGoblin.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):

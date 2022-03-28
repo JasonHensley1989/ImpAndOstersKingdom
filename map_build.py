@@ -14,3 +14,7 @@ def build_map(self, tilemap):
             # this will check to see if T(tree) is on the maps.py, if it is it will write the tree class from sprites onto it
             if column == "T":
                 Tree(self, j, i)
+
+            # this will check to see if E(enemies) is on the map, the write the enemy class onto it
+            if column == "E":
+                Enemy(self, j, i)
