@@ -3,6 +3,7 @@ from sprites import *
 import maps
 from sounds import *
 import random
+from config import *
 
 # creates player, brings player into game
 class Player(pygame.sprite.Sprite):
@@ -23,7 +24,7 @@ class Player(pygame.sprite.Sprite):
         #starts animation loop over when initialized
         self.animation_loop = 1
         #will pull this from the image at these positions, needs character sprite sheet
-        self.image = self.game.character_spritesheet.get_sprite(320, 0, self.width // 2, self.height)
+        self.image = self.game.character_spritesheet.get_sprite(320, 360, self.width, self.height)
         # will make it be interpreted as a rectangle so edges can be found
         # will NOT place character on map
         self.rect = self.image.get_rect()
@@ -55,6 +56,9 @@ class Player(pygame.sprite.Sprite):
             self.facing = 'down'
 
 
+# this is where we make the animation in the character
+    def animate(self):
+        Player_animation_animate(self)
 
 # this update allows for the character to be updated based on key press, then updates the maps image BEHIND the character so the key presses make the character appear to walk
     def update(self):
@@ -71,6 +75,3 @@ class Player(pygame.sprite.Sprite):
         self.y_change = 0
 
     
-# this is where we make the animation in the character
-    def animate(self):
-        Player_animation_animate(self)

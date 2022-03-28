@@ -28,11 +28,11 @@ class Game():
         build_map(self, tilemap)
 
     # allows sprites to play and update
-    def new(self, tilemap):
-        self.playing = True
+    def new(self, tilemap):   
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
-
+        self.playing = True
+        
     # create events
     def events(self):
         for event in pygame.event.get():
