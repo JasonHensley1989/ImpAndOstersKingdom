@@ -22,16 +22,21 @@ class Game():
         self.terrainsheet = Spritesheet('terrain1.png')
         # asset for character
         self.character_spritesheet = Spritesheet('Alex_run_16x16.png')
+        # # asset for trees
+        self.treesheet = Spritesheet('Serene_Village_XP.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
         build_map(self, tilemap)
 
     # allows sprites to play and update
-    def new(self, tilemap):   
+    def new(self, tilemap):  
+        self.playing = True 
         self.all_sprites = pygame.sprite.LayeredUpdates()
+        self.trees = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
-        self.playing = True
+        
+        
         
     # create events
     def events(self):

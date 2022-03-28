@@ -8,7 +8,7 @@ import maps
 class Ground(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-        self._layer = 1
+        self._layer = GROUND_LAYER
         self.groups = self.game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
@@ -31,3 +31,23 @@ class Spritesheet:
         sprite.blit(self.sheet, (0, 0), (x, y, width, height))
         sprite.set_colorkey('black')
         return sprite
+
+# Creates trees
+class Tree(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        # this line creates a new layer between the ground and player
+        self._layer = BLOCK_LAYER
+        # this allows the loop to include this in the all sprites update
+        self.groups = self.game.all_sprites, self.game.trees
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE + 250, TILESIZE + 45
+        self.image = self.game.treesheet.get_sprite(0, 1500, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+        #this line of code will probably be removed this is in case the background of the image does not come out right, this needs to be put into maps
+        self.image.set_colorkey('black')

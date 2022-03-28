@@ -4,8 +4,10 @@ WIN_HEIGHT = 600
 TILESIZE = 32
 FPS = 60
 
-# this defines what layer the player image is on
-PLAYER_LAYER = 5
-
 # this defines the speed of character
 PLAYER_SPEED = 3
+
+# defines which layer each elements are on for collision and boundary purposes
+BLOCK_LAYER = 3
+GROUND_LAYER = 1
+PLAYER_LAYER = 5
