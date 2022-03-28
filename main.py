@@ -22,8 +22,10 @@ class Game():
         self.terrainsheet = Spritesheet('img/terrain1.png')
         # asset for character
         self.character_spritesheet = Spritesheet('img/Alex_run_16x16.png')
-        # # asset for trees
+        # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
+        # asset for enemy
+        self.enemy_spritesheet = Spritesheet('enemy.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
@@ -35,6 +37,7 @@ class Game():
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.trees = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
+        self.enemies = pygame.sprite.LayeredUpdates()
         
         
         
@@ -57,6 +60,7 @@ class Game():
     
        pygame.display.update()
 
+    # this defines what happens WHILE the main game is playing which is just events, updates, and drawing which is a loop
     def main(self):
         while self.playing:
             self.events()
