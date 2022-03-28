@@ -62,7 +62,8 @@ class Enemy(pygame.sprite.Sprite):
         if self.facing == 'left':
             self.x_change -= ENEMY_SPEED
             self.movement_loop -= 1
-            if self.movement_loop <= self.max_travel:
+            # this is set to max travel negative because it takes the distance that its allowed to travel and replaces it with a negative value
+            if self.movement_loop <= -self.max_travel:
                 self.facing = 'right'
 
         if self.facing == 'right':
