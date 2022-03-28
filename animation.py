@@ -99,7 +99,7 @@ def enemy_animation_animate(self):
 
     if self.facing == 'right':
         if self.x_change == 0:
-            self.image = self.game.enemy_spritesheet.get_sprite(3, 98, self.width, self.height)
+            self.image = self.game.enemy_spritesheet.get_sprite(3, 66, self.width, self.height)
         else: 
             self.image = self.right_animation[math.floor(self.animation_loop)] 
             self.animation_loop += 0.1

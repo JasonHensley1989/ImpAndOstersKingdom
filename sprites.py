@@ -30,7 +30,7 @@ class Enemy(pygame.sprite.Sprite):
         self.game = game
         self._layer = ENEMY_LAYER
         self.groups = self.game.all_sprites, self.game.enemies
-        pygame.sprite.Sprite.__init(self, self.groups)
+        pygame.sprite.Sprite.__init__(self, self.groups)
         # sets our enemies as tilesize
         self.x, self.y = x * TILESIZE, y * TILESIZE
         self.width, self.height = TILESIZE, TILESIZE
@@ -46,6 +46,35 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.x, self.rect.y = self.x, self.y
 
         # this creates the enemy animation
+        enemy_animation(self)
+
+    # this is a function to update player image
+    def update(self):
+        self.movement()
+        self.animate()
+        self.rect.x += self.x_change
+        self.rect.y += self.y_change
+
+        self.x_change, self.y_change = 0, 0
+
+    # defines enemy movement
+    def movement(self):
+        if self.facing == 'left':
+            self.x_change -= ENEMY_SPEED
+            self.movement_loop -= 1
+            if self.movement_loop <= self.max_travel:
+                self.facing = 'right'
+
+        if self.facing == 'right':
+            self.x_change += ENEMY_SPEED
+            self.movement_loop += 1
+            if self.movement_loop >= self.max_travel:
+                self.facing = 'left'
+
+    # defines animation for enemy
+    def animate(self):
+        enemy_animation_animate(self)
+
 
 # Also need a class for sprite sheets, aka assets to bring in
 class Spritesheet:
