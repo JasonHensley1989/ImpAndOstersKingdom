@@ -25,9 +25,10 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Projectiles | H | 2hr|  hr | 
 | Enemies | H | 2hr|  hr |
 | Collision and Hit Boxes| M | 3hr | hr|
+| Unique mechanic | H | 3hrs|  hr | 
 | Scoring| L | 1hrs|  hr | 
 
-- 16 Hours Total
+- 19 Hours Total
 
 #### PostMVP EXAMPLE
 
