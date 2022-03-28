@@ -19,11 +19,11 @@ class Game():
         self.clock = pygame.time.Clock()
         self.running = True
         # asset for ground terrain
-        self.terrainsheet = Spritesheet('terrain1.png')
+        self.terrainsheet = Spritesheet('img/terrain1.png')
         # asset for character
-        self.character_spritesheet = Spritesheet('Alex_run_16x16.png')
+        self.character_spritesheet = Spritesheet('img/Alex_run_16x16.png')
         # # asset for trees
-        self.treesheet = Spritesheet('Serene_Village_XP.png')
+        self.treesheet = Spritesheet('img/Serene_Village_XP.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
