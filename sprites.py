@@ -16,7 +16,7 @@ class Ground(pygame.sprite.Sprite):
         self.y = y * TILESIZE
         self.width, self.height = TILESIZE, TILESIZE
         # actual location on sprite sheet of asset being used
-        self.image = self.game.terrainsheet.get_sprite(0, 96, self.width, self.height)
+        self.image = self.game.terrainsheet.get_sprite(0, 96, self.width * 2, self.height * 2)
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
 
@@ -44,8 +44,8 @@ class Tree(pygame.sprite.Sprite):
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
-        self.width, self.height = TILESIZE + 250, TILESIZE + 45
-        self.image = self.game.treesheet.get_sprite(0, 1500, self.width, self.height)
+        self.width, self.height = TILESIZE + 120, TILESIZE + 65
+        self.image = self.game.treesheet.get_sprite(10, 1480, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y

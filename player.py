@@ -64,14 +64,44 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.movement()
 
-        #this allows the animation to update
+        # this allows the animation to update
         self.animate()
 
+        # this will set collisions and boundaries into the update with the trees 
         # this code allows the map to update as events are triggered     
         self.rect.x += self.x_change
+        self.collide_trees('x')
         self.rect.y += self.y_change
+        self.collide_trees('y')
         # now the x and y need to be set back to zero so its not just the character moving
         self.x_change = 0
         self.y_change = 0
 
-    
+# this function will 
+
+    def collide_trees(self, direction):
+        if direction == 'x':
+            # this will put it in group of trees, and false make sure it doesnt destroy object when we hit it, it checks the left and right edges of the image to see if collison
+            # is occuring if it is it stops it with the player speed
+            hits = pygame.sprite.spritecollide(self, self.game.trees, False)
+            if hits:
+                if self.x_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x += PLAYER_SPEED
+                    self.rect.x = hits[0].rect.left - self.rect.width
+                if self.x_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x -= PLAYER_SPEED
+                    self.rect.x = hits[0].rect.right
+                    
+        if direction == 'y':
+            hits = pygame.sprite.spritecollide(self, self.game.trees, False)
+            if hits:
+                if self.y_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y += PLAYER_SPEED
+                    self.rect.y = hits[0].rect.top - self.rect.height
+                if self.y_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y -= PLAYER_SPEED
+                    self.rect.y = hits[0].rect.bottom
