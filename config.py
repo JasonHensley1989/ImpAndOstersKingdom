@@ -6,10 +6,10 @@ FPS = 60
 
 # this defines the speed of characters, and enemies
 PLAYER_SPEED = 3
-ENEMY_SPEED = 2
+
 
 # defines which layer each elements are on for collision and boundary purposes
 GROUND_LAYER = 1
-ENEMY_LAYER = 2
 BLOCK_LAYER = 3
 PLAYER_LAYER = 5
+ENEMY_LAYER = 2

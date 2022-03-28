@@ -26,60 +26,27 @@ class Ground(pygame.sprite.Sprite):
 
 # This class creates the enemy to be brought into the game
 class Enemy(pygame.sprite.Sprite):
-    # initializes the enemue states
     def __init__(self, game, x, y):
         self.game = game
         self._layer = ENEMY_LAYER
-        # when this update is performed it will update under all_sprites and enemies
         self.groups = self.game.all_sprites, self.game.enemies
-        pygame.sprite.Sprite.__init__(self, self.groups)
-
+        pygame.sprite.Sprite.__init(self, self.groups)
+        # sets our enemies as tilesize
         self.x, self.y = x * TILESIZE, y * TILESIZE
         self.width, self.height = TILESIZE, TILESIZE
         self.x_change, self.y_change = 0, 0
-        # this creates a list of left and right and selects an initial facing, and then randomized from that point
-        # if the enemy stays along one axis it requires two image changes, or two axis requires 4 images for each direction plus
-        # additional images for the animation. 2 bare minimum in order for the loop to change the images
+        # creates a list of left and right and randomly selects for initial facing, then continue left to right after
         self.facing = random.choice(['left', 'right'])
         self.animation_loop = 1
         self.movement_loop = 0
-        self.max_travel = random.randint(7, 35)
-        self.image = self.game.enemy_spritesheet.get_sprite(0, 0, self.width, self.height)
-        # this checks for edges
+        self.max_travel = random.randint(7, 30)
+        self.image = self.game.enemy_spritesheet.get_sprite(3, 2, self.width, self.height)
+        self.image.set_colorkey('black')
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
-        # this creates our enemy animation
-        enemy_animation(self)
-    # this creates an update for the enemy
-    def update(self):
-        self.movement()
-        self.animate()
-        self.rect.x += self.x_change
-        self.rect.y += self.y_change
-        # this resets our x and y changes back 
-        self.x_change, self.y_change = 0, 0
 
-    # this defines our enemies movement, if its going left its going at the enemy speed once it reaches its maximum travel it turns
-    def movement(self):
-        if self.facing == "left":
-            self.x_change -= ENEMY_SPEED
-            self.movement_loop -= 1
-            if self.movement_loop <= self.max_travel:
-                self.facing = 'right'
+        # this creates the enemy animation
 
-        if self.facing == "right":
-            self.x_change += ENEMY_SPEED
-            self.movement_loop += 1
-            if self.movement_loop >= self.max_travel:
-                self.facing = 'left'
-
-    # this literally creates the enemy animation
-    def animate(self):
-        enemy_animation_animate(self)
-        
-        
-
-        
 # Also need a class for sprite sheets, aka assets to bring in
 class Spritesheet:
     def __init__(self, file):

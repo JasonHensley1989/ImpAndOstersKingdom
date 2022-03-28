@@ -36,9 +36,8 @@ class Game():
         self.playing = True 
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.trees = pygame.sprite.LayeredUpdates()
-        self.createTilemap(tilemap)
         self.enemies = pygame.sprite.LayeredUpdates()
-        
+        self.createTilemap(tilemap)
         
         
     # create events

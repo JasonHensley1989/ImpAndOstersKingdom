@@ -29,17 +29,17 @@ def Player_animation(self):
 
 
 def enemy_animation(self):
-    self.left_animation = {
+    self.left_animation = [
         self.game.enemy_spritesheet.get_sprite(3, 98, self.width, self.height),
         self.game.enemy_spritesheet.get_sprite(35, 98, self.width, self.height),
         self.game.enemy_spritesheet.get_sprite(68, 98, self.width, self.height),
-    }
+    ]
 
-    self.right_animation = {
+    self.right_animation = [
         self.game.enemy_spritesheet.get_sprite(3, 66, self.width, self.height),
         self.game.enemy_spritesheet.get_sprite(35, 66, self.width, self.height),
         self.game.enemy_spritesheet.get_sprite(68, 66, self.width, self.height),
-    }
+    ]
 
 
 # animation of player here happens the literal mechanic by cycling through images, the same applies for enemies below that
