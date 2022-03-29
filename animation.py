@@ -31,14 +31,14 @@ def Player_animation(self):
 def enemy_animation(self):
     self.left_animation = [
         self.game.enemy_spritesheet.get_sprite(0, 0, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(32, 0, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(64, 0, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(20, 0, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(40, 0, self.width, self.height),
     ]
 
     self.right_animation = [
         self.game.enemy_spritesheet.get_sprite(0, 66, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(32, 66, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(64, 66, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(20, 66, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(40, 66, self.width, self.height),
     ]
 
 
