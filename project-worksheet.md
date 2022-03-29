@@ -17,14 +17,14 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 #### MVP EXAMPLE
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: | 
-| Terrains Window Clock | H | 1 hr | hr | hr |
-| Basic Movements and Key Presses | 1 H | hr | hr |
-| Containing the player within boundaries | 2 H | hr | hr |
-| Character Animation and Sprites| H | 4hr | hr |
+| Terrains Window Clock | H | 1 hr | hr | hr | x |
+| Basic Movements and Key Presses | 1 H | hr | hr | x |
+| Containing the player within boundaries | 2 H | hr | hr | x |
+| Character Animation and Sprites| H | 4hr | hr | x |
 | Optimization  | H | 1hr | hr |  
 | Projectiles | H | 2hr|  hr | 
-| Enemies | H | 2hr|  hr |
-| Collision and Hit Boxes| M | 3hr | hr|
+| Enemies | H | 2hr|  hr | x|
+| Collision and Hit Boxes| M | 3hr | hr| x |
 | Unique mechanic | H | 3hrs|  hr | 
 | Scoring| L | 1hrs|  hr | 
 
