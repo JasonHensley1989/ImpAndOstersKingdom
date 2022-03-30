@@ -1,5 +1,5 @@
 # imports pygame, system, animation, config, map, map build, our character, sprites, and sounds
-import imp
+
 from termios import TAB1
 import pygame
 import sys
@@ -16,6 +16,7 @@ pygame.display.set_caption("Imp and Osters Kingdom")
 # Initializes game and creates clock to run game
 class Game():
     def __init__(self):
+        pygame.init()
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.clock = pygame.time.Clock()
         self.running = True
@@ -26,8 +27,10 @@ class Game():
         # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
         # asset for enemy
-        self.enemy_spritesheet = Spritesheet('/home/jason/Desktop/sei/ImpAndOstersKingdom/img/0x72_DungeonTilesetII_v1.3.png')
-
+        self.enemy_spritesheet = Spritesheet('img/0x72_DungeonTilesetII_v1.3.png')
+        # asset for attack animation
+        self.attack_spritesheet = Spritesheet('img/attack.png')
+        
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
         build_map(self, tilemap)
@@ -38,15 +41,31 @@ class Game():
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.trees = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
+        self.attacks = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
         
         
     # create events
     def events(self):
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.playing = False
                 self.running = False
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE :
+                    if self.player.facing == 'up':
+                        Attack(self, self.player.rect.x, self.player.rect.y - TILESIZE)
+                    if self.player.facing == 'down':
+                        Attack(self, self.player.rect.x, self.player.rect.y + TILESIZE)
+                    if self.player.facing == 'left':
+                        Attack(self, self.player.rect.x - TILESIZE, self.player.rect.y)
+                    if self.player.facing == 'right':
+                        Attack(self, self.player.rect.x  + TILESIZE, self.player.rect.y)
+                
+                print("key pressed")
+            
     
     # defines update
     def update(self):

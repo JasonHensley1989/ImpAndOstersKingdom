@@ -105,3 +105,38 @@ class Player(pygame.sprite.Sprite):
                     for sprite in self.game.all_sprites:
                         sprite.rect.y -= PLAYER_SPEED
                     self.rect.y = hits[0].rect.bottom
+
+
+
+# this function will allow attacks
+class Attack(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = PLAYER_LAYER
+        self.groups = self.game.all_sprites, self.game.attacks
+        pygame.sprite.Sprite.__init__(self, self.groups)
+        self.x, self.y = x, y
+        self.width, self.height = TILESIZE, TILESIZE
+    
+        self.animation_loop = 0
+        if self.animation_loop == 0:
+            self.collidable = True
+        self.image = self.game.attack_spritesheet.get_sprite(0, 0, self.width, self.height)
+
+        self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = self.x, self.y
+
+        attack_animation(self)
+
+    def update(self):
+        self.animate()
+        self.collide()
+
+    def collide(self):
+        if self.collidable:
+            hits = pygame.sprite.spritecollide(self, self.game.enemies, True)
+            if hits:
+                pass
+
+    def animate(self):
+        attack_animation_animate(self)

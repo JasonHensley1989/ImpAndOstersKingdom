@@ -9,7 +9,7 @@ def build_map(self, tilemap):
             Ground(self, j, i)
             # if statement will plug in coordinates according to where location is at p(player)
             if column == "P":
-                self.Player = Player(self, j, i)
+                self.player = Player(self, j, i)
 
             # this will check to see if T(tree) is on the maps.py, if it is it will write the tree class from sprites onto it
             if column == "T":
