@@ -99,8 +99,8 @@ class Tree(pygame.sprite.Sprite):
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
-        self.width, self.height = TILESIZE + 120, TILESIZE + 65
-        self.image = self.game.treesheet.get_sprite(10, 1480, self.width, self.height)
+        self.width, self.height = TILESIZE + 130, TILESIZE + 65
+        self.image = self.game.treesheet.get_sprite(0, 1475, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y
