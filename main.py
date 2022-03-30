@@ -98,6 +98,9 @@ class Game():
         title = self.font.render("Main Menu", True, 'black')
         title_rect = title.get_rect(x = 280, y = 100)
 
+        play_button = Button(WIN_WIDTH/2 - BTN_W/2, 200, BTN_W, BTN_H, 'black', 'gray', f"{startresume} Game", 32)
+        (self, x, y, width, height, fg, bg, content, fontsize)
+
         while intro:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
