@@ -111,7 +111,7 @@ class Tree(pygame.sprite.Sprite):
 # This creates a button class for the menu options
 class Button:
     def __init__(self, x, y, width, height, fg, bg, content, fontsize):
-        self.font - pygame.font.Font('img/admiration-pains/Admiration Pains.ttf', fontsize)
+        self.font = pygame.font.SysFont('comicsans', fontsize)
         self.content  = content
         self.x, self.y = x, y
         self.width, self.height = width, height

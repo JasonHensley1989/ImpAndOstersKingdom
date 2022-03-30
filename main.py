@@ -9,6 +9,7 @@ from map_build import *
 import maps
 from sprites import *
 from config import *
+pygame.font.init()
 
 # names window and game
 pygame.display.set_caption("Imp and Osters Kingdom")
@@ -31,7 +32,7 @@ class Game():
         # asset for attack animation
         self.attack_spritesheet = Spritesheet('img/attack.png')
         # asset for font style
-        self.font = pygame.font.Font('img/admiration-pains/Admiration Pains.ttf', 32)
+        self.font = pygame.font.SysFont('comicsans', 32)
         # asset for character choice menu
         self.intro_background = pygame.image.load('img/characterpick.png')
 
@@ -99,7 +100,8 @@ class Game():
         title_rect = title.get_rect(x = 280, y = 100)
 
         play_button = Button(WIN_WIDTH/2 - BTN_W/2, 200, BTN_W, BTN_H, 'black', 'gray', f"{startresume} Game", 32)
-        (self, x, y, width, height, fg, bg, content, fontsize)
+        # (self, x, y, width, height, fg, bg, content, fontsize)
+        exit_button = Button(WIN_WIDTH/2 - BTN_W/2, 400, BTN_W, BTN_H, 'black', 'gray', "Exit Game", 32)
 
         while intro:
             for event in pygame.event.get():
@@ -108,6 +110,8 @@ class Game():
                     self.running = False
             self.screen.blit(self.intro_background, (0, 0))
             self.screen.blit(title, title_rect)
+            self.screen.blit(play_button.image, play_button.rect)
+            self.screen.blit(exit_button.image, exit_button.rect)
             self.clock.tick(FPS)
             pygame.display.update()
 
