@@ -30,7 +30,7 @@ class Game():
         self.enemy_spritesheet = Spritesheet('img/0x72_DungeonTilesetII_v1.3.png')
         # asset for attack animation
         self.attack_spritesheet = Spritesheet('img/attack.png')
-        
+
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
         build_map(self, tilemap)
@@ -64,7 +64,7 @@ class Game():
                     if self.player.facing == 'right':
                         Attack(self, self.player.rect.x  + TILESIZE, self.player.rect.y)
                 
-                print("key pressed")
+               
             
     
     # defines update
