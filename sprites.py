@@ -1,3 +1,4 @@
+# from tkinter import font
 import pygame
 from config import *
 import random
@@ -106,3 +107,26 @@ class Tree(pygame.sprite.Sprite):
         self.rect.y = self.y
         #this line of code will probably be removed, this is in case the background of the image does not come out right, this needs to be put into maps
         self.image.set_colorkey('black')
+
+# This creates a button class for the menu options
+class Button:
+    def __init__(self, x, y, width, height, fg, bg, content, fontsize):
+        self.font - pygame.font.Font('img/admiration-pains/Admiration Pains.ttf', fontsize)
+        self.content  = content
+        self.x, self.y = x, y
+        self.width, self.height = width, height
+        self.fg, self.bg = fg, bg
+        self.image = pygame.Surface((self.width, self.height))
+        self.image.fill(self.bg)
+        self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = self.x, self.y
+        self.text = self.font.render(self.content, True, self.fg)
+        self.text_rect = self.text.get_rect(center = (self.width/2, self.height/2))
+        self.image.blit(self.text, self.text_rect)
+
+    def is_pressed(self, pos, pressed):
+        if self.rect.collidepoint(pos):
+            if pressed[0]:
+                return True
+            return False
+        return False

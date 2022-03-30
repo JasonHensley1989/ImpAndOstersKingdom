@@ -30,6 +30,10 @@ class Game():
         self.enemy_spritesheet = Spritesheet('img/0x72_DungeonTilesetII_v1.3.png')
         # asset for attack animation
         self.attack_spritesheet = Spritesheet('img/attack.png')
+        # asset for font style
+        self.font = pygame.font.Font('img/admiration-pains/Admiration Pains.ttf', 32)
+        # asset for character choice menu
+        self.intro_background = pygame.image.load('img/characterpick.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
@@ -86,12 +90,32 @@ class Game():
             self.update()
             self.draw()
 
+    # defines intro screen, and brings over the top of the game
+    
+    def intro_screen(self, startresume):
+        intro = True
 
+        title = self.font.render("Main Menu", True, 'black')
+        title_rect = title.get_rect(x = 280, y = 100)
+
+        while intro:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    intro = False
+                    self.running = False
+            self.screen.blit(self.intro_background, (0, 0))
+            self.screen.blit(title, title_rect)
+            self.clock.tick(FPS)
+            pygame.display.update()
 
 
 # tells game what to run and when in relation to starting and stopping
 TILEMAP = maps.world_1.stage_1
 game = Game()
+
+# this will create our menu buttons and background
+game.intro_screen("Start")
+
 game.new(TILEMAP)
 while game.running:
     game.main()
