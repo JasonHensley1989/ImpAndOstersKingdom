@@ -1,7 +1,8 @@
 # imports pygame, system, animation, config, map, map build, our character, sprites, and sounds
 import imp
 from termios import TAB1
-import pygame, sys
+import pygame
+import sys
 from sounds import *
 from player import *
 from map_build import *
@@ -25,7 +26,7 @@ class Game():
         # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
         # asset for enemy
-        self.enemy_spritesheet = Spritesheet('img/Mammoth.png')
+        self.enemy_spritesheet = Spritesheet('/home/jason/Desktop/sei/ImpAndOstersKingdom/img/0x72_DungeonTilesetII_v1.3.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):

@@ -30,15 +30,15 @@ def Player_animation(self):
 
 def enemy_animation(self):
     self.left_animation = [
-        self.game.enemy_spritesheet.get_sprite(0, 0, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(20, 0, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(40, 0, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(20, 368, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(50, 368, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(80, 368, self.width, self.height),
     ]
 
     self.right_animation = [
-        self.game.enemy_spritesheet.get_sprite(0, 66, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(20, 66, self.width, self.height),
-        self.game.enemy_spritesheet.get_sprite(40, 66, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(145, 368, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(175, 368, self.width, self.height),
+        self.game.enemy_spritesheet.get_sprite(205, 368, self.width, self.height),
     ]
 
 
@@ -67,7 +67,7 @@ def Player_animation_animate(self):
 
     if self.facing == 'left':
         if self.x_change == 0:
-            self.image = self.game.character_spritesheet.get_sprite(192, 0, self.width, self.height)
+            self.image = self.game.character_spritesheet.get_sprite(-50, 0, self.width, self.height)
         else: 
             self.image = self.left_animation[math.floor(self.animation_loop)]
             self.animation_loop += 0.1
@@ -90,7 +90,7 @@ def enemy_animation_animate(self):
 
     if self.facing == 'left':
         if self.x_change == 0:
-            self.image = self.game.enemy_spritesheet.get_sprite(3, 98, self.width, self.height)
+            self.image = self.game.enemy_spritesheet.get_sprite(3, 98, self.width * 2, self.height * 2)
         else: 
             self.image = self.left_animation[math.floor(self.animation_loop)]
             self.animation_loop += 0.1

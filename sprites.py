@@ -40,7 +40,7 @@ class Enemy(pygame.sprite.Sprite):
         self.animation_loop = 1
         self.movement_loop = 0
         self.max_travel = random.randint(7, 30)
-        self.image = self.game.enemy_spritesheet.get_sprite(3, 2, self.width, self.height)
+        self.image = self.game.enemy_spritesheet.get_sprite(0, 96, self.width, self.height)
         self.image.set_colorkey('black')
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
