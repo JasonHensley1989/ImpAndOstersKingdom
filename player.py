@@ -54,8 +54,7 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
-        # this will draw a rectangle around the player
-
+        
 # this is where we make the animation in the character
     def animate(self):
         Player_animation_animate(self)
