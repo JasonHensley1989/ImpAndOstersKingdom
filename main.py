@@ -9,10 +9,16 @@ from map_build import *
 import maps
 from sprites import *
 from config import *
+from pygame import mixer
 pygame.font.init()
+pygame.mixer.init()
 
 # names window and game
 pygame.display.set_caption("Imp and Osters Kingdom")
+
+# background music
+mixer.music.load('AutumnLeaves.mp3')
+mixer.music.play(-1)
 
 # Initializes game and creates clock to run game
 class Game():
@@ -186,7 +192,7 @@ class Game():
             
             mouse_pos = pygame.mouse.get_pos()
             mouse_pressed = pygame.mouse.get_pressed()
-
+            # updates character based on mouse press on button of character
             if exit_button.is_pressed(mouse_pos, mouse_pressed):
                 self.running = False
                 pygame.quit()
@@ -199,6 +205,7 @@ class Game():
                 char_select = False
                 self.char_selection = 2
                 self.char_update()
+
             #places items on screen menu
             self.screen.blit(self.choosecharacterbg, (0, 0))
             self.screen.blit(title, title_rect)
