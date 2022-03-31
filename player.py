@@ -16,7 +16,6 @@ class Player(pygame.sprite.Sprite):
         self.x, self.y = x * TILESIZE, y * TILESIZE
         #creates width and height of player
         self.width, self.height = TILESIZE, TILESIZE
-
         self.x_change = 0
         self.y_change = 0
         #this will be used in animation multiple images depending on direction
@@ -29,7 +28,11 @@ class Player(pygame.sprite.Sprite):
         # will NOT place character on map
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
-
+        # this will create a health amount
+        self.current_health = 200
+        self.maximum_health = 1000
+        self.health_bar_length = 400
+        self.health_ratio = self.maximum_health / self.health_bar_length
         Player_animation(self)
 
     def movement(self):
@@ -54,7 +57,24 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
-        
+        # this is an attempt to bring in health bar through a
+
+# these functions will add and subtract health
+    def get_damage(self, amount):
+        if self.current_health > 0:
+            self.current_health -= amount
+        # this makes sure health bar doesnt go below zero
+        if self.current_health <= 0:
+            self.current_health = 0
+
+    def get_health(self, amount):
+        if self.current_health < self.maximum_health:
+            self.current_health += amount
+        if self.current_health <= 0:
+            self.current_health = 0
+    
+    
+
 # this is where we make the animation in the character
     def animate(self):
         Player_animation_animate(self)
@@ -160,16 +180,16 @@ class Attack(pygame.sprite.Sprite):
         self.rect.x, self.rect.y = self.x, self.y
 
         attack_animation(self)
-
+    # cause collision with enemy
     def update(self):
         self.animate()
         self.collide()
-
+    #destroys enemy
     def collide(self):
         if self.collidable:
             hits = pygame.sprite.spritecollide(self, self.game.enemies, True)
             if hits:
                 pass
-
+    # attack animation
     def animate(self):
         attack_animation_animate(self)

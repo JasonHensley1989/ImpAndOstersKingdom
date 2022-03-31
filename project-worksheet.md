@@ -23,7 +23,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Character Animation and Sprites| H | 4hr | hr | x |
 | Optimization  | H | 1hr | hr |  
 | Projectiles | H | 2hr|  hr | x |
-| Enemies | H | 2hr|  hr | x|
+| Enemies | H | 2hr|  hr | x |
 | Collision and Hit Boxes| M | 3hr | hr| x |
 | Unique mechanic | H | 3hrs|  hr | 
 | Scoring| L | 1hrs|  hr | 
@@ -35,7 +35,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
 | Lore | H | 2hr | hr | 
-| Make music and Assets | H | 2hr | hr |
+| Make music and Assets | H | 2hr | hr | x |
 | Health Bars| H | 2hr | hr |
 | Collecting Items| H | 2hr | hr |
 | Boss Creation| H | 1hr | hr |

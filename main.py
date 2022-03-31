@@ -11,7 +11,7 @@ from sprites import *
 from config import *
 
 # imports mixer for implementing music
-from pygame import mixer
+from pygame import K_w, mixer
 pygame.font.init()
 pygame.mixer.init()
 pygame.mixer.music.set_volume(0.1)
@@ -193,7 +193,7 @@ class Game():
                 if event.type == pygame.QUIT:
                     char_self = False
                     self.running = False
-            
+                
             mouse_pos = pygame.mouse.get_pos()
             mouse_pressed = pygame.mouse.get_pressed()
             # updates character based on mouse press on button of character
