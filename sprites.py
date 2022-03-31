@@ -114,7 +114,7 @@ class House(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
         self._layer = BLOCK_LAYER
-        self.groups = self.game.all_sprites, self.game.houses
+        self.groups = self.game.all_sprites, self.game.house
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.x = x * TILESIZE
