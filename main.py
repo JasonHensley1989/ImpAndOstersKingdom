@@ -14,7 +14,7 @@ from config import *
 from pygame import mixer
 pygame.font.init()
 pygame.mixer.init()
-
+pygame.mixer.music.set_volume(0.1)
 # names window and game
 pygame.display.set_caption("Imp and Osters Kingdom")
 

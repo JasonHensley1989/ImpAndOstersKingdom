@@ -49,8 +49,5 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
-
-```
-
-```
+Typically I put a code snippet here that I am particularly proud of. I chose instead
+to go with my psuedocode. I really did well with leaving myself a trail

@@ -30,10 +30,6 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
 
-        # this will create a "hit" box around the player so when it comes into collision with objects it is recognized
-        #currently a generalized layout needs to be adjust later - then this comment can be deleted. 
-        self.hitbox = (self.x + 20, self.y, 28, 60)
-
         Player_animation(self)
 
     def movement(self):
@@ -77,10 +73,8 @@ class Player(pygame.sprite.Sprite):
         self.collide_trees('x')
         self.rect.y += self.y_change
         self.collide_trees('y')
-        # collisions and boundaries update for houses
-        self.rect.x += self.x_change
+        # collisions and boundaries update for houses   
         self.collide_house('x')
-        self.rect.y += self.y_change
         self.collide_house('y')
         # now the x and y need to be set back to zero so its not just the character moving
         self.x_change = 0
