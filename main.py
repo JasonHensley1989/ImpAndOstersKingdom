@@ -68,6 +68,7 @@ class Game():
         self.house = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
+        self.enemy = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
         
         
@@ -95,7 +96,7 @@ class Game():
     
     # defines update
     def update(self):
-        self.all_sprites.update()\
+        self.all_sprites.update()
 
     # defines update for main menu char selection
     def char_update(self):

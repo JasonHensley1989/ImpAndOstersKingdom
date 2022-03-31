@@ -82,6 +82,9 @@ class Player(pygame.sprite.Sprite):
         # now the x and y need to be set back to zero so its not just the character moving
         self.x_change = 0
         self.y_change = 0
+        # collisions and boundaries update for enemies
+        self.collide_enemy('x')
+        self.collide_house('y')
     
 
     # this function will make a collision with the trees 
@@ -133,6 +136,35 @@ class Player(pygame.sprite.Sprite):
                     
         if direction == 'y':
             hits = pygame.sprite.spritecollide(self, self.game.house, False)
+            if hits:
+                if self.y_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y += PLAYER_SPEED
+                    self.rect.y = hits[0].rect.top - self.rect.height
+                if self.y_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y -= PLAYER_SPEED
+                    self.rect.y = hits[0].rect.bottom
+
+    # this function will put a collison around enemies
+
+    def collide_enemy(self, direction):
+        if direction == 'x':
+            # this will put it in group of enemies, and false make sure it doesnt destroy object when we hit it, it checks the left and right edges 
+            # of the image to see if collision is occuring if it is it stops it with the player speed
+            hits = pygame.sprite.spritecollide(self, self.game.enemy, False)
+            if hits:
+                if self.x_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x += PLAYER_SPEED
+                    self.rect.x = hits[0].rect.left - self.rect.width
+                if self.x_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x -= PLAYER_SPEED
+                    self.rect.x = hits[0].rect.right
+                    
+        if direction == 'y':
+            hits = pygame.sprite.spritecollide(self, self.game.enemy, False)
             if hits:
                 if self.y_change > 0:
                     for sprite in self.game.all_sprites:
