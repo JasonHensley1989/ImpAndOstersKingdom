@@ -9,6 +9,8 @@ from map_build import *
 import maps
 from sprites import *
 from config import *
+
+# imports mixer for implementing music
 from pygame import mixer
 pygame.font.init()
 pygame.mixer.init()
@@ -37,12 +39,13 @@ class Game():
             1: Spritesheet('img/Alex_run_16x16.png'),
             2: Spritesheet('img/Amelia_run_16x16.png'),
         }
-
         self.character_spritesheet = self.char_dictionary[self.char_selection]
         #asset for character selection bg
         self.choosecharacterbg = pygame.image.load('img/charsel.png')
         # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
+        # asset for houses
+        self.housesheet = Spritesheet('img/Serene_Village_32x32.png')
         # asset for enemy
         self.enemy_spritesheet = Spritesheet('img/0x72_DungeonTilesetII_v1.3.png')
         # asset for attack animation
@@ -62,6 +65,7 @@ class Game():
         self.playing = True 
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.trees = pygame.sprite.LayeredUpdates()
+        self.houses = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
@@ -76,7 +80,7 @@ class Game():
                 self.running = False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE :
+                if event.key == pygame.K_a :
                     if self.player.facing == 'up':
                         Attack(self, self.player.rect.x, self.player.rect.y - TILESIZE)
                     if self.player.facing == 'down':
