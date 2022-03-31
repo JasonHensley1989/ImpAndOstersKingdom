@@ -58,7 +58,7 @@ class Game():
                 self.playing = False
                 self.running = False
 
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYUP:
                 if event.key == pygame.K_SPACE :
                     if self.player.facing == 'up':
                         Attack(self, self.player.rect.x, self.player.rect.y - TILESIZE)
@@ -99,15 +99,28 @@ class Game():
         title = self.font.render("Main Menu", True, 'black')
         title_rect = title.get_rect(x = 280, y = 100)
 
-        play_button = Button(WIN_WIDTH/2 - BTN_W/2, 200, BTN_W, BTN_H, 'black', 'gray', f"{startresume} Game", 32)
+        play_button = Button(WIN_WIDTH/2 - BTN_W/2, 200, BTN_W, BTN_H, 'black', 'white', f"{startresume} Game", 32)
         # (self, x, y, width, height, fg, bg, content, fontsize)
-        exit_button = Button(WIN_WIDTH/2 - BTN_W/2, 400, BTN_W, BTN_H, 'black', 'gray', "Exit Game", 32)
+        exit_button = Button(WIN_WIDTH/2 - BTN_W/2, 400, BTN_W, BTN_H, 'black', 'white', "Exit Game", 32)
 
         while intro:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     intro = False
                     self.running = False
+
+            mouse_pos = pygame.mouse.get_pos()
+            mouse_pressed = pygame.mouse.get_pressed()
+
+            if play_button.is_pressed(mouse_pos, mouse_pressed):
+                intro = False
+            elif exit_button.is_pressed(mouse_pos, mouse_pressed):
+                self.running = False
+                pygame.quit()
+                sys.exit()
+
+
+
             self.screen.blit(self.intro_background, (0, 0))
             self.screen.blit(title, title_rect)
             self.screen.blit(play_button.image, play_button.rect)
