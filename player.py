@@ -57,22 +57,6 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
-        # this is an attempt to bring in health bar through a
-
-# these functions will add and subtract health
-    def get_damage(self, amount):
-        if self.current_health > 0:
-            self.current_health -= amount
-        # this makes sure health bar doesnt go below zero
-        if self.current_health <= 0:
-            self.current_health = 0
-
-    def get_health(self, amount):
-        if self.current_health < self.maximum_health:
-            self.current_health += amount
-        if self.current_health <= 0:
-            self.current_health = 0
-    
     
 
 # this is where we make the animation in the character
