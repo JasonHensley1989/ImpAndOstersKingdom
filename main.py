@@ -32,9 +32,10 @@ class Game():
         # asset for attack animation
         self.attack_spritesheet = Spritesheet('img/attack.png')
         # asset for font style
-        self.font = pygame.font.SysFont('comicsans', 32)
+        self.font = pygame.font.SysFont('comicsans', 70)
         # asset for character choice menu
-        self.intro_background = pygame.image.load('img/characterpick.png')
+        self.intro_background = pygame.image.load('img/imps_background.png')
+
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
@@ -96,8 +97,10 @@ class Game():
     def intro_screen(self, startresume):
         intro = True
 
-        title = self.font.render("Main Menu", True, 'black')
-        title_rect = title.get_rect(x = 280, y = 100)
+        title = self.font.render("Imp and Oster's Kingdom", True, 'black')
+        title_rect = title.get_rect(x = 100, y = 100)
+
+        BLACK = (0, 0, 0)
 
         play_button = Button(WIN_WIDTH/2 - BTN_W/2, 200, BTN_W, BTN_H, 'black', 'white', f"{startresume} Game", 32)
         # (self, x, y, width, height, fg, bg, content, fontsize)
