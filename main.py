@@ -51,7 +51,7 @@ class Game():
         # asset for attack animation
         self.attack_spritesheet = Spritesheet('img/attack.png')
         # asset for font style
-        self.font = pygame.font.SysFont('comicsans', 70)
+        self.font = pygame.font.SysFont('comicsans', 60)
         # asset for character choice menu
         self.intro_background = pygame.image.load('img/imps_background.png')
 

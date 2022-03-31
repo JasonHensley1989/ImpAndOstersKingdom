@@ -30,6 +30,10 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
 
+        # this will create a "hit" box around the player so when it comes into collision with objects it is recognized
+        #currently a generalized layout needs to be adjust later - then this comment can be deleted. 
+        self.hitbox = (self.x + 20, self.y, 28, 60)
+
         Player_animation(self)
 
     def movement(self):
@@ -54,7 +58,7 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
-
+        # this will draw a rectangle around the player
 
 # this is where we make the animation in the character
     def animate(self):
