@@ -20,11 +20,21 @@ class Game():
         pygame.init()
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.clock = pygame.time.Clock()
+        self.char_selection = 1
         self.running = True
         # asset for ground terrain
         self.terrainsheet = Spritesheet('img/terrain1.png')
+        # asset for character selection menu pics
+        self.char_select_spritesheet = Spritesheet('img/charselection.png')
         # asset for character
-        self.character_spritesheet = Spritesheet('img/Alex_run_16x16.png')
+        self.char_dictionary = {
+            1: Spritesheet('img/Alex_run_16x16.png'),
+            2: Spritesheet('img/Amelia_run_16x16.png'),
+        }
+
+        self.character_spritesheet = self.char_dictionary[self.char_selection]
+        #asset for character selection bg
+        self.choosecharacterbg = pygame.image.load('img/charsel.png')
         # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
         # asset for enemy
@@ -75,7 +85,18 @@ class Game():
     
     # defines update
     def update(self):
-        self.all_sprites.update()
+        self.all_sprites.update()\
+
+    # defines update for main menu char selection
+    def char_update(self):
+          self.char_dictionary = {
+            1: Spritesheet('img/Alex_run_16x16.png'),
+            2: Spritesheet('img/Amelia_run_16x16.png'),
+        }   
+
+          self.character_spritesheet = self.char_dictionary[self.char_selection]
+          game.new(TILEMAP)
+
 
     # defines draw, simply moving the image and limits speed across machines
     def draw(self):
@@ -117,6 +138,8 @@ class Game():
 
             if play_button.is_pressed(mouse_pos, mouse_pressed):
                 intro = False
+                if startresume == "Start":
+                    self.character_select()
             elif exit_button.is_pressed(mouse_pos, mouse_pressed):
                 self.running = False
                 pygame.quit()
@@ -131,7 +154,61 @@ class Game():
             self.clock.tick(FPS)
             pygame.display.update()
 
+    def character_select(self):
+        char_select = True
+        title = self.font.render("Choose your character", True, "white")
+        title_rect = title.get_rect(x=100, y=100)
 
+        object_dictionary = {
+            "Odinn": [0, 0],
+            "Freyja": [32, 0]
+        }
+
+        odinn_pic = pygame.transform.scale2x(
+            self.char_select_spritesheet.get_sprite(object_dictionary["Odinn"][0], object_dictionary["Odinn"][1], TILESIZE, TILESIZE))
+        odinn_rect = odinn_pic.get_rect(x = 300, y = 250)
+
+        freyja_pic = pygame.transform.scale2x(self.char_select_spritesheet.get_sprite(object_dictionary["Freyja"][0], object_dictionary["Freyja"][1], TILESIZE, TILESIZE))
+        freyja_rect = freyja_pic.get_rect(x = 300, y = 250)
+
+        odinn_button = Button(120, 320, TILESIZE, TILESIZE, 'white', "black", "Odinn", 20)
+        freyja_button = Button(240, 320, TILESIZE, TILESIZE, 'white', "black", "Freyja", 20)
+
+        exit_button = Button(WIN_WIDTH / 2 - BTN_W /2, 400, BTN_W, BTN_H, 'black', "white", "Exit", 32)
+        # this code makes all of these things fucntional
+        while char_select:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    char_self = False
+                    self.running = False
+            
+            mouse_pos = pygame.mouse.get_pos()
+            mouse_pressed = pygame.mouse.get_pressed()
+
+            if exit_button.is_pressed(mouse_pos, mouse_pressed):
+                self.running = False
+                pygame.quit()
+                sys.exit()
+            elif odinn_button.is_pressed(mouse_pos, mouse_pressed):
+                char_select = False
+                self.char_selection = 1
+                self.char_update()
+            elif freyja_button.is_pressed(mouse_pos, mouse_pressed):
+                char_select = False
+                self.char_selection = 2
+                self.char_update()
+            #places items on screen menu
+            self.screen.blit(self.choosecharacterbg, (0, 0))
+            self.screen.blit(title, title_rect)
+            self.screen.blit(exit_button.image, exit_button.rect)
+            self.screen.blit(odinn_button.image, odinn_button.rect)
+            self.screen.blit(freyja_button.image, freyja_button.rect)
+            self.screen.blit(odinn_pic, odinn_rect)
+            self.screen.blit(freyja_pic, freyja_rect)
+            self.clock.tick(FPS)
+            pygame.display.update()
+
+            
 # tells game what to run and when in relation to starting and stopping
 TILEMAP = maps.world_1.stage_1
 game = Game()

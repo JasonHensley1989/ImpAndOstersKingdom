@@ -17,7 +17,7 @@ def Player_animation(self):
 
     self.left_animation = [
         self.game.character_spritesheet.get_sprite(160, 0, self.width, self.height),
-        self.game.character_spritesheet.get_sprite(192, 0, self.width, self.height),
+        self.game.character_spritesheet.get_sprite(190, 0, self.width, self.height),
         self.game.character_spritesheet.get_sprite(224, 0, self.width, self.height)
     ]
 
