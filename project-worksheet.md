@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Containing the player within boundaries | 2 H | hr | hr | x |
 | Character Animation and Sprites| H | 4hr | hr | x |
 | Optimization  | H | 1hr | hr |  
-| Projectiles | H | 2hr|  hr | 
+| Projectiles | H | 2hr|  hr | x |
 | Enemies | H | 2hr|  hr | x|
 | Collision and Hit Boxes| M | 3hr | hr| x |
 | Unique mechanic | H | 3hrs|  hr | 
