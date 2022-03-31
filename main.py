@@ -127,6 +127,7 @@ class Game():
         # (self, x, y, width, height, fg, bg, content, fontsize)
         exit_button = Button(WIN_WIDTH/2 - BTN_W/2, 400, BTN_W, BTN_H, 'black', 'white', "Exit Game", 32)
 
+        # this loop allows our mouse and events to take place on the menu screen
         while intro:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -140,6 +141,7 @@ class Game():
                 intro = False
                 if startresume == "Start":
                     self.character_select()
+
             elif exit_button.is_pressed(mouse_pos, mouse_pressed):
                 self.running = False
                 pygame.quit()
@@ -154,14 +156,15 @@ class Game():
             self.clock.tick(FPS)
             pygame.display.update()
 
+    # this allows for the character selection menu
     def character_select(self):
         char_select = True
         title = self.font.render("Choose your character", True, "white")
         title_rect = title.get_rect(x=100, y=100)
 
         object_dictionary = {
-            "Odinn": [0, 0],
-            "Freyja": [32, 0]
+            "Odinn": [30, 10],
+            "Freyja": [30, 10]
         }
 
         odinn_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Odinn"][0], object_dictionary["Odinn"][1], TILESIZE - 12, TILESIZE + 20)
