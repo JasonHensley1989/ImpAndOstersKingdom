@@ -164,15 +164,14 @@ class Game():
             "Freyja": [32, 0]
         }
 
-        odinn_pic = pygame.transform.scale2x(
-            self.char_select_spritesheet.get_sprite(object_dictionary["Odinn"][0], object_dictionary["Odinn"][1], TILESIZE, TILESIZE))
-        odinn_rect = odinn_pic.get_rect(x = 300, y = 250)
+        odinn_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Odinn"][0], object_dictionary["Odinn"][1], TILESIZE - 12, TILESIZE + 20)
+        odinn_rect = odinn_pic.get_rect(x = 290, y = 200)
 
-        freyja_pic = pygame.transform.scale2x(self.char_select_spritesheet.get_sprite(object_dictionary["Freyja"][0], object_dictionary["Freyja"][1], TILESIZE, TILESIZE))
-        freyja_rect = freyja_pic.get_rect(x = 300, y = 250)
+        freyja_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Freyja"][0], object_dictionary["Freyja"][1], TILESIZE -12, TILESIZE + 20)
+        freyja_rect = freyja_pic.get_rect(x = 440, y = 200)
 
-        odinn_button = Button(120, 320, TILESIZE, TILESIZE, 'white', "black", "Odinn", 20)
-        freyja_button = Button(240, 320, TILESIZE, TILESIZE, 'white', "black", "Freyja", 20)
+        odinn_button = Button(260, 320, TILESIZE + 80, TILESIZE, 'white', "black", "Odinn", 20)
+        freyja_button = Button(410, 320, TILESIZE + 80, TILESIZE, 'white', "black", "Freyja", 20)
 
         exit_button = Button(WIN_WIDTH / 2 - BTN_W /2, 400, BTN_W, BTN_H, 'black', "white", "Exit", 32)
         # this code makes all of these things fucntional
