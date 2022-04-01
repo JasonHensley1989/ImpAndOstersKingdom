@@ -82,7 +82,7 @@ class Game():
                 self.running = False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_a :
+                if event.key == pygame.K_r :
                     if self.player.facing == 'up':
                         Attack(self, self.player.rect.x, self.player.rect.y - TILESIZE)
                     if self.player.facing == 'down':

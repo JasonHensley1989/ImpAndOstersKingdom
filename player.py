@@ -54,22 +54,47 @@ class Player(pygame.sprite.Sprite):
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
 
-        # code makes character jump
-        #jump variables
+        # this code creates sidesteps and jump action
        
         jumping = False
-        jump_height = 5
+        jump_height = 10
         y_velocity = jump_height
+        x_velocity = jump_height
         y_gravity = 1
+        
         if keys[pygame.K_w]:
             jumping = True
             if jumping:
                 self.y_change -= y_velocity
                 y_velocity -= y_gravity
-        elif y_velocity < jump_height:
-            jumping = False
-            jump_height = y_gravity
-     
+            if y_velocity < jump_height:
+                jumping = False
+                jump_height = y_gravity
+        if keys[pygame.K_s]:
+                jumping = True
+                if jumping:
+                    self.y_change += y_velocity
+                    y_velocity += y_gravity
+                if y_velocity < jump_height:
+                    jumping = False
+                    jump_height = y_gravity
+        if keys[pygame.K_a]:
+                jumping = True
+                if jumping:
+                    self.x_change -= x_velocity
+                    x_velocity -= y_gravity
+                if x_velocity < jump_height:
+                    jumping = False
+                    jump_height = y_gravity
+        if keys[pygame.K_d]:
+                jumping = True
+                if jumping:
+                    self.x_change += y_velocity
+                    x_velocity += y_gravity
+                if x_velocity < jump_height:
+                    jumping = False
+                    jump_height = y_gravity
+
 
 # this is where we make the animation in the character
     def animate(self):
