@@ -3,7 +3,6 @@
 from termios import TAB1
 import pygame
 import sys
-from sounds import *
 from player import *
 from map_build import *
 import maps
@@ -44,8 +43,10 @@ class Game():
         self.choosecharacterbg = pygame.image.load('img/charsel.png')
         # asset for trees
         self.treesheet = Spritesheet('img/Serene_Village_XP.png')
-        # asset for houses
+        # asset for red houses
         self.housesheet = Spritesheet('img/Serene_Village_32x32.png')
+        # asset of blue houses
+        self.blue_housesheet =  Spritesheet('img/Serene_Village_32x32.png')
         # asset for enemy
         self.enemy_spritesheet = Spritesheet('img/0x72_DungeonTilesetII_v1.3.png')
         # asset for attack animation
@@ -68,6 +69,7 @@ class Game():
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.trees = pygame.sprite.LayeredUpdates()
         self.house = pygame.sprite.LayeredUpdates()
+        self.blue_house = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)

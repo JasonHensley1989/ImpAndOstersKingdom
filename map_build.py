@@ -19,7 +19,10 @@ def build_map(self, tilemap):
             if column == "E":
                 Enemy(self, j, i)
 
-            # this will check for H(house) and write house class onto it
+            # this will check for H(red house) bh(blue house) and write house class onto it
 
             if column == "H":
                 House(self, j, i)
+
+            if column == "B":
+                Blue_House(self, j, i)

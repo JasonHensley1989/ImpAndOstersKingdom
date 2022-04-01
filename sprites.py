@@ -109,7 +109,7 @@ class Tree(pygame.sprite.Sprite):
         self.image.set_colorkey('black')
 
 
-# this creates a class to implement a house
+# this creates a class to implement a  red house
 class House(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
@@ -124,7 +124,21 @@ class House(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y
+# creates blue hosue
+class Blue_House(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.blue_house
+        pygame.sprite.Sprite.__init__(self, self.groups)
 
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE + 140, TILESIZE + 100
+        self.image = self.game.blue_housesheet.get_sprite(5, 1200, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
 
 
 # This creates a button class for the menu options

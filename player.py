@@ -1,7 +1,6 @@
 import pygame
 from sprites import *
 import maps
-from sounds import *
 import random
 from config import *
 
@@ -116,6 +115,9 @@ class Player(pygame.sprite.Sprite):
         # collisions and boundaries update for houses   
         self.collide_house('x')
         self.collide_house('y')
+        self.collide_blue_house('x')
+        self.collide_blue_house('y')
+
         # now the x and y need to be set back to zero so its not just the character moving
         self.x_change = 0
         self.y_change = 0
@@ -182,7 +184,34 @@ class Player(pygame.sprite.Sprite):
                     for sprite in self.game.all_sprites:
                         sprite.rect.y -= PLAYER_SPEED
                     self.rect.y = hits[0].rect.bottom
+    # this function will make a collision with the houses
 
+    def collide_blue_house(self, direction):
+        if direction == 'x':
+            # this will put it in group of blue houses, and false make sure it doesnt destroy object when we hit it, it checks the left and right edges 
+            # of the image to see if collision is occuring if it is it stops it with the player speed
+            hits = pygame.sprite.spritecollide(self, self.game.blue_house, False)
+            if hits:
+                if self.x_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x += PLAYER_SPEED
+                    self.rect.x = hits[0].rect.left - self.rect.width
+                if self.x_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x -= PLAYER_SPEED
+                    self.rect.x = hits[0].rect.right
+                    
+        if direction == 'y':
+            hits = pygame.sprite.spritecollide(self, self.game.blue_house, False)
+            if hits:
+                if self.y_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y += PLAYER_SPEED
+                    self.rect.y = hits[0].rect.top - self.rect.height
+                if self.y_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y -= PLAYER_SPEED
+                    self.rect.y = hits[0].rect.bottom
 
 
 
