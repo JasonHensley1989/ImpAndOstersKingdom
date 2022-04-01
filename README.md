@@ -16,34 +16,34 @@ https://www.youtube.com/watch?v=i6xMBig-pP4&t=135s
 https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 
 #### MVP EXAMPLE
-| Component | Priority | Estimated Time | Actual Time |
+| Component | Priority | Estimated Time | Completion |
 | --- | :---: |  :---: | :---: | 
-| Terrains Window Clock | H | 1 hr | hr | hr | x |
-| Basic Movements and Key Presses | 1 H | hr | hr | x |
-| Containing the player within boundaries | 2 H | hr | hr | x |
-| Character Animation and Sprites| H | 4hr | hr | x |
-| Optimization  | H | 1hr | hr |  
-| Projectiles | H | 2hr|  hr | x |
-| Enemies | H | 2hr|  hr | x |
-| Collision and Hit Boxes| M | 3hr | hr| x |
-| Unique mechanic | H | 3hrs|  hr | x |
-| Scoring| L | 1hrs|  hr | 
+| Terrains Window Clock | H | 1 hr |  |
+| Basic Movements and Key Presses | 1 H | hr | x |
+| Containing the player within boundaries | 2 H | hr | x |
+| Character Animation and Sprites| H | 4hr | x |
+| Optimization  | H | 1hr |  |  
+| Projectiles | H | 2hr| x |
+| Enemies | H | 2hr| x |
+| Collision and Hit Boxes| M | 3hr | x |
+| Unique mechanic | H | 3hrs| x |
+| Scoring| L | 1hrs|   | 
 
 - 19 Hours Total
 
 #### PostMVP EXAMPLE
 
-| Component | Priority | Estimated Time | Actual Time |
+| Component | Priority | Estimated Time | Completion |
 | --- | :---: |  :---: | :---: |
-| Lore | H | 2hr | hr | 
-| Make music and Assets | H | 2hr | hr | x |
-| Health Bars| H | 2hr | hr |
-| Collecting Items| H | 2hr | hr |
-| Boss Creation| H | 1hr | hr |
-| Intro, Game Over, Credits Screens| H | 2hr | hr |
-| Inventory | H | 2hr | hr |
-| Potion and Spell Creation | H | 2hr | hr |
-| Google Play Store | H | 2hr | hr |
+| Lore | H | 2hr |  | 
+| Make music and Assets | H | 2hr | x |
+| Health Bars| H | 2hr | |
+| Collecting Items| H | 2hr | |
+| Boss Creation| H | 1hr | |
+| Intro, Game Over, Credits Screens| H | 2hr | x |
+| Inventory | H | 2hr |  |
+| Potion and Spell Creation | H | 2hr | |
+| Google Play Store | H | 2hr |  |
 
 
 
