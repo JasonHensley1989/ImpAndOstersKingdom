@@ -22,7 +22,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Basic Movements and Key Presses | 1 H | hr | x |
 | Containing the player within boundaries | 2 H | hr | x |
 | Character Animation and Sprites| H | 4hr | x |
-| Optimization  | H | 1hr |  |  
+| Optimization  | H | 1hr | x |  
 | Projectiles | H | 2hr| x |
 | Enemies | H | 2hr| x |
 | Collision and Hit Boxes| M | 3hr | x |
