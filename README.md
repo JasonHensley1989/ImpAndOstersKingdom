@@ -52,7 +52,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 
 Typically I put a code snippet here that I am particularly proud of. I chose instead to go with my psuedocode. I really did well with leaving myself a trail that is readable and copyable
 
-## Bug List
+# Bug List
 
 | Fix Jump y axis bug |
 | left arrow causing char to disappear |
