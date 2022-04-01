@@ -1,5 +1,6 @@
 # Project Overview
- This is a project built to help people experiencing Imposter Syndrome.
+ This is a project built to play when experiencing Imposter Syndrome. I intend to keep different versions of the same project and build on them
+ and show them to people experiencing Imposter syndrome and the growth along the way.
 ## Project Links
 
 
@@ -49,5 +50,4 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 
 ## Code Snippet
 
-Typically I put a code snippet here that I am particularly proud of. I chose instead
-to go with my psuedocode. I really did well with leaving myself a trail
+Typically I put a code snippet here that I am particularly proud of. I chose instead to go with my psuedocode. I really did well with leaving myself a trail that is readable and copyable
