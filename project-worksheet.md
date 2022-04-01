@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Projectiles | H | 2hr|  hr | x |
 | Enemies | H | 2hr|  hr | x |
 | Collision and Hit Boxes| M | 3hr | hr| x |
-| Unique mechanic | H | 3hrs|  hr | 
+| Unique mechanic | H | 3hrs|  hr | x |
 | Scoring| L | 1hrs|  hr | 
 
 - 19 Hours Total
@@ -51,3 +51,9 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 ## Code Snippet
 
 Typically I put a code snippet here that I am particularly proud of. I chose instead to go with my psuedocode. I really did well with leaving myself a trail that is readable and copyable
+
+## Bug List
+
+| Fix Jump y axis bug |
+| left arrow causing char to disappear |
+| Collision boxes around enemies |

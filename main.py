@@ -54,7 +54,7 @@ class Game():
         self.font = pygame.font.SysFont('comicsans', 60)
         # asset for character choice menu
         self.intro_background = pygame.image.load('img/imps_background.png')
-        # asset for character jum
+        # asset for character jump
         self.jumping_surface = pygame.transform.scale(pygame.image.load('img/Alex_run_16x16.png'), (30, 30))
 
 
@@ -131,7 +131,7 @@ class Game():
         intro = True
 
         title = self.font.render("Imp and Oster's Kingdom", True, 'black')
-        title_rect = title.get_rect(x = 100, y = 100)
+        title_rect = title.get_rect(x = 150, y = 100)
 
         BLACK = (0, 0, 0)
 
@@ -172,21 +172,21 @@ class Game():
     def character_select(self):
         char_select = True
         title = self.font.render("Choose your character", True, "white")
-        title_rect = title.get_rect(x=100, y=100)
+        title_rect = title.get_rect(x=170, y=100)
 
         object_dictionary = {
-            "Odinn": [30, 10],
-            "Freyja": [30, 10]
+            "Odinn": [30, 50],
+            "Freyja": [30, 50]
         }
 
-        odinn_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Odinn"][0], object_dictionary["Odinn"][1], TILESIZE - 12, TILESIZE + 20)
+        odinn_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Odinn"][0], object_dictionary["Odinn"][1], TILESIZE, TILESIZE + 20)
         odinn_rect = odinn_pic.get_rect(x = 290, y = 200)
 
-        freyja_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Freyja"][0], object_dictionary["Freyja"][1], TILESIZE -12, TILESIZE + 20)
+        freyja_pic = self.char_select_spritesheet.get_sprite(object_dictionary["Freyja"][1], object_dictionary["Freyja"][1], TILESIZE, TILESIZE + 20)
         freyja_rect = freyja_pic.get_rect(x = 440, y = 200)
 
-        odinn_button = Button(260, 320, TILESIZE + 80, TILESIZE, 'white', "black", "Odinn", 20)
-        freyja_button = Button(410, 320, TILESIZE + 80, TILESIZE, 'white', "black", "Freyja", 20)
+        odinn_button = Button(260, 250, TILESIZE + 80, TILESIZE, 'black', "white", "Odinn", 20)
+        freyja_button = Button(410, 250, TILESIZE + 80, TILESIZE, 'black', "white", "Freyja", 20)
 
         exit_button = Button(WIN_WIDTH / 2 - BTN_W /2, 400, BTN_W, BTN_H, 'black', "white", "Exit", 32)
         # this code makes all of these things fucntional
