@@ -34,11 +34,9 @@ class Player(pygame.sprite.Sprite):
     def movement(self):
         #jump variables
         jumping = False
-        jump_height = 5
-        min_jump_height = -1 * jump_height
-        initial_jump_height = jump_height
-
-
+        jump_height = 20
+        y_velocity = jump_height
+        y_gravity = 1
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             for sprite in self.game.all_sprites:
@@ -50,7 +48,6 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.x -= PLAYER_SPEED
             self.x_change += PLAYER_SPEED
             self.facing = 'right'
-        # this will make the character jump from key event
         if keys[pygame.K_UP]:
             for sprite in self.game.all_sprites:
                 sprite.rect.y += PLAYER_SPEED
@@ -61,20 +58,16 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
-        if not jumping:
-            if keys[pygame.K_w]:
-                print('jump pressed')
-                jumping = True
-            if jump_height >= min_jump_height:
-                negative = 1
-            if jump_height < 0:
-                negative = -1
-                y -= (jump_height ** 2) / 2 * negative
-                jump_height -= 1
-            else:
-                jumping = False
-                jump_height = initial_jump_height
+        if keys[pygame.K_w]:
+            jumping = True
 
+        if jumping:
+            self.y_change -= y_velocity
+            y_velocity -= y_gravity
+        if y_velocity < -jump_height:
+            jumping = False
+            y_velocity = jump_height
+     
 
 # this is where we make the animation in the character
     def animate(self):
@@ -132,6 +125,7 @@ class Player(pygame.sprite.Sprite):
                         sprite.rect.y -= PLAYER_SPEED
                     self.rect.y = hits[0].rect.bottom
 
+    
     
     # this function will make a collision with the houses
 

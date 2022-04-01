@@ -54,6 +54,8 @@ class Game():
         self.font = pygame.font.SysFont('comicsans', 60)
         # asset for character choice menu
         self.intro_background = pygame.image.load('img/imps_background.png')
+        # asset for character jump
+        self.jumping_surface = pygame.transform.scale(pygame.image.load('img/Alex_run_16x16.png'), (30, 10))
 
 
     # creates tilemap, to place objects and borders
