@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Enemies | H | 2hr| x |
 | Collision and Hit Boxes| M | 3hr | x |
 | Unique mechanic | H | 3hrs| x |
-| Scoring| L | 1hrs|   | 
+| Health Bar | L | 1hrs|   | 
 
 - 19 Hours Total
 
@@ -37,7 +37,6 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | --- | :---: |  :---: | :---: |
 | Lore | H | 2hr |  | 
 | Make music and Assets | H | 2hr | x |
-| Health Bars| H | 2hr | |
 | Collecting Items| H | 2hr | |
 | Boss Creation| H | 1hr | |
 | Intro, Game Over, Credits Screens| H | 2hr | x |
