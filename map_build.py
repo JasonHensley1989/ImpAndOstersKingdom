@@ -26,3 +26,6 @@ def build_map(self, tilemap):
 
             if column == "B":
                 Blue_House(self, j, i)
+
+            if column == "D":
+                Dirt(self, j, i)
