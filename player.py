@@ -32,11 +32,6 @@ class Player(pygame.sprite.Sprite):
         Player_animation(self)
 
     def movement(self):
-        #jump variables
-        jumping = False
-        jump_height = 20
-        y_velocity = jump_height
-        y_gravity = 1
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             for sprite in self.game.all_sprites:
@@ -58,15 +53,22 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
+
+        # code makes character jump
+        #jump variables
+       
+        jumping = False
+        jump_height = 5
+        y_velocity = jump_height
+        y_gravity = 1
         if keys[pygame.K_w]:
             jumping = True
-
-        if jumping:
-            self.y_change -= y_velocity
-            y_velocity -= y_gravity
-        if y_velocity < -jump_height:
+            if jumping:
+                self.y_change -= y_velocity
+                y_velocity -= y_gravity
+        elif y_velocity < jump_height:
             jumping = False
-            y_velocity = jump_height
+            jump_height = y_gravity
      
 
 # this is where we make the animation in the character
