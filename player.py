@@ -28,14 +28,17 @@ class Player(pygame.sprite.Sprite):
         # will NOT place character on map
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
-        # this will create a health amount
-        self.current_health = 200
-        self.maximum_health = 1000
-        self.health_bar_length = 400
-        self.health_ratio = self.maximum_health / self.health_bar_length
+
         Player_animation(self)
 
     def movement(self):
+        #jump variables
+        jumping = False
+        jump_height = 5
+        min_jump_height = -1 * jump_height
+        initial_jump_height = jump_height
+
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             for sprite in self.game.all_sprites:
@@ -47,6 +50,7 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.x -= PLAYER_SPEED
             self.x_change += PLAYER_SPEED
             self.facing = 'right'
+        # this will make the character jump from key event
         if keys[pygame.K_UP]:
             for sprite in self.game.all_sprites:
                 sprite.rect.y += PLAYER_SPEED
@@ -57,7 +61,20 @@ class Player(pygame.sprite.Sprite):
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
-    
+        if not jumping:
+            if keys[pygame.K_w]:
+                print('jump pressed')
+                jumping = True
+            if jump_height >= min_jump_height:
+                negative = 1
+            if jump_height < 0:
+                negative = -1
+                y -= (jump_height ** 2) / 2 * negative
+                jump_height -= 1
+            else:
+                jumping = False
+                jump_height = initial_jump_height
+
 
 # this is where we make the animation in the character
     def animate(self):
@@ -83,8 +100,7 @@ class Player(pygame.sprite.Sprite):
         self.x_change = 0
         self.y_change = 0
         # collisions and boundaries update for enemies
-        self.collide_enemy('x')
-        self.collide_house('y')
+       
     
 
     # this function will make a collision with the trees 
@@ -146,34 +162,7 @@ class Player(pygame.sprite.Sprite):
                         sprite.rect.y -= PLAYER_SPEED
                     self.rect.y = hits[0].rect.bottom
 
-    # this function will put a collison around enemies
 
-    def collide_enemy(self, direction):
-        if direction == 'x':
-            # this will put it in group of enemies, and false make sure it doesnt destroy object when we hit it, it checks the left and right edges 
-            # of the image to see if collision is occuring if it is it stops it with the player speed
-            hits = pygame.sprite.spritecollide(self, self.game.enemy, False)
-            if hits:
-                if self.x_change > 0:
-                    for sprite in self.game.all_sprites:
-                        sprite.rect.x += PLAYER_SPEED
-                    self.rect.x = hits[0].rect.left - self.rect.width
-                if self.x_change < 0:
-                    for sprite in self.game.all_sprites:
-                        sprite.rect.x -= PLAYER_SPEED
-                    self.rect.x = hits[0].rect.right
-                    
-        if direction == 'y':
-            hits = pygame.sprite.spritecollide(self, self.game.enemy, False)
-            if hits:
-                if self.y_change > 0:
-                    for sprite in self.game.all_sprites:
-                        sprite.rect.y += PLAYER_SPEED
-                    self.rect.y = hits[0].rect.top - self.rect.height
-                if self.y_change < 0:
-                    for sprite in self.game.all_sprites:
-                        sprite.rect.y -= PLAYER_SPEED
-                    self.rect.y = hits[0].rect.bottom
 
 
 

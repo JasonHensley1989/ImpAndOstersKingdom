@@ -68,7 +68,6 @@ class Game():
         self.house = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
-        self.enemy = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
         
         
