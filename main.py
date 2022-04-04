@@ -67,7 +67,8 @@ class Game():
         self.water_spritesheet = Spritesheet('img/water_waves_32x32.gif')
         # asset for health animation
         self.health_spritesheet = Spritesheet('img/Red 32px2.png')
-
+         # asset for ground terrain
+        self.dirt_spritesheet = Spritesheet('img/terrain1.png')
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
@@ -87,6 +88,7 @@ class Game():
         self.bridge_over_water = pygame.sprite.LayeredUpdates()
         self.water = pygame.sprite.LayeredUpdates()
         self.health = pygame.sprite.LayeredUpdates()
+        self.dirt = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
         
         

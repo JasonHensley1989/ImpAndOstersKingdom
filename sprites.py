@@ -225,6 +225,21 @@ class Water(pygame.sprite.Sprite):
         self.rect.x = self.x
         self.rect.y = self.y
 
+# creates rock path
+class Dirt(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.dirt
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE, TILESIZE  
+        self.image = self.game.dirt_spritesheet.get_sprite(0, 65, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
 
 # This creates a button class for the menu options
 class Button:

@@ -38,3 +38,6 @@ def build_map(self, tilemap):
 
             if column == "O":
                 Water(self, j, i)
+
+            if column == "D":
+                Dirt(self, j, i)
