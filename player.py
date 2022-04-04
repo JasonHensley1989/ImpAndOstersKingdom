@@ -27,6 +27,8 @@ class Player(pygame.sprite.Sprite):
         # will NOT place character on map
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = self.x, self.y
+        # this creates a health variable for the player
+        health = 5
 
         Player_animation(self)
 
@@ -133,8 +135,6 @@ class Player(pygame.sprite.Sprite):
         # now the x and y need to be set back to zero so its not just the character moving
         self.x_change = 0
         self.y_change = 0
-        # collisions and boundaries update for enemies
-       
     
 
     # this function will make a collision with the trees 
@@ -256,6 +256,7 @@ class Player(pygame.sprite.Sprite):
 
    # this function will make a collision with the water
     def collide_enemy(self, direction):
+        health = 5
         if direction == 'x':
             # this will put it in enemy, and false make sure it doesnt destroy object when we hit it, it checks the left and right edges 
             # of the image to see if collision is occuring if it is it stops it with the player speed
@@ -269,7 +270,9 @@ class Player(pygame.sprite.Sprite):
                     for sprite in self.game.all_sprites:
                         sprite.rect.x -= PLAYER_SPEED
                     self.rect.x = hits[0].rect.right
-                    
+                
+        health -= 1
+        print("your ran into an enemy", health)
         if direction == 'y':
             hits = pygame.sprite.spritecollide(self, self.game.enemies, False)
             if hits:
@@ -281,36 +284,37 @@ class Player(pygame.sprite.Sprite):
                     for sprite in self.game.all_sprites:
                         sprite.rect.y -= PLAYER_SPEED
                     self.rect.y = hits[0].rect.bottom
-
+        health -= 1
+        print("your ran into an enemy", health)  
 # this function will allow attacks
 class Attack(pygame.sprite.Sprite):
-    def __init__(self, game, x, y):
-        self.game = game
-        self._layer = PLAYER_LAYER
-        self.groups = self.game.all_sprites, self.game.attacks
-        pygame.sprite.Sprite.__init__(self, self.groups)
-        self.x, self.y = x, y
-        self.width, self.height = TILESIZE, TILESIZE
-    
-        self.animation_loop = 0
-        if self.animation_loop == 0:
-            self.collidable = True
-        self.image = self.game.attack_spritesheet.get_sprite(0, 0, self.width, self.height)
+        def __init__(self, game, x, y):
+            self.game = game
+            self._layer = PLAYER_LAYER
+            self.groups = self.game.all_sprites, self.game.attacks
+            pygame.sprite.Sprite.__init__(self, self.groups)
+            self.x, self.y = x, y
+            self.width, self.height = TILESIZE, TILESIZE
+        
+            self.animation_loop = 0
+            if self.animation_loop == 0:
+                self.collidable = True
+            self.image = self.game.attack_spritesheet.get_sprite(0, 0, self.width, self.height)
 
-        self.rect = self.image.get_rect()
-        self.rect.x, self.rect.y = self.x, self.y
+            self.rect = self.image.get_rect()
+            self.rect.x, self.rect.y = self.x, self.y
 
-        attack_animation(self)
-    # cause collision with enemy
-    def update(self):
-        self.animate()
-        self.collide()
-    #destroys enemy
-    def collide(self):
-        if self.collidable:
-            hits = pygame.sprite.spritecollide(self, self.game.enemies, True)
-            if hits:
-                pass
-    # attack animation
-    def animate(self):
-        attack_animation_animate(self)
+            attack_animation(self)
+        # cause collision with enemy
+        def update(self):
+            self.animate()
+            self.collide()
+        #destroys enemy
+        def collide(self):
+            if self.collidable:
+                hits = pygame.sprite.spritecollide(self, self.game.enemies, True)
+                if hits:
+                    pass
+        # attack animation
+        def animate(self):
+            attack_animation_animate(self)

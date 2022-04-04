@@ -88,6 +88,26 @@ class Spritesheet:
         sprite.set_colorkey('black')
         return sprite
 
+# Creates healthbar class to be used by player
+class HealthBar(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        # this line selects a new layer between the ground and player
+        self._layer = PLAYER_LAYER
+        # this allows the loop to include this in the all sprites update
+        self.groups = self.game.all_sprites, self.game.health
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE + 130, TILESIZE + 65
+        self.image = self.game.health.get_sprite(0, 1475, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+        #this line of code will probably be removed, this is in case the background of the image does not come out right, this needs to be put into maps
+        self.image.set_colorkey('black')
+
 # Creates trees
 class Tree(pygame.sprite.Sprite):
     def __init__(self, game, x, y):

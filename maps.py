@@ -1,6 +1,8 @@
  # Create Tilemap, just an enumerated list to lay map on
 
 class world_1:
+    if "E" :
+        print("You have not killed all foes")
     stage_1 = [
     
     '..T..T..T..T..T.T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T..T.',

@@ -1,6 +1,4 @@
 # imports pygame, system, animation, config, map, map build, our character, sprites, and sounds
-
-from termios import TAB1
 import pygame
 import sys
 from player import *
@@ -10,7 +8,7 @@ from sprites import *
 from config import *
 
 # imports mixer for implementing music
-from pygame import K_w, mixer
+from pygame import mixer
 pygame.font.init()
 
 # names window and game
@@ -67,6 +65,8 @@ class Game():
         self.bridge_over_water_spritesheet = Spritesheet('img/B-C-D-E_Serene_Village_01.png')
         # asset for bridge over water
         self.water_spritesheet = Spritesheet('img/water_waves_32x32.gif')
+        # asset for health animation
+        self.health_spritesheet = Spritesheet('img/Red 32px2.png')
 
 
     # creates tilemap, to place objects and borders
@@ -86,7 +86,7 @@ class Game():
         self.water_with_island = pygame.sprite.LayeredUpdates()
         self.bridge_over_water = pygame.sprite.LayeredUpdates()
         self.water = pygame.sprite.LayeredUpdates()
-
+        self.health = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
         
         
