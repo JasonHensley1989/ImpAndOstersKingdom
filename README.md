@@ -1,7 +1,7 @@
 # Project Overview
  This is a project built to play when experiencing Imposter Syndrome. I intend to keep different versions of the same project and build on them
  and show them to people experiencing Imposter syndrome and the growth along the way.
-## Project Links
+
 
 
 ## Project Description
@@ -15,7 +15,7 @@ https://coderslegacy.com/python/pygame-rpg-building-the-base/
 https://www.youtube.com/watch?v=i6xMBig-pP4&t=135s
 https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 
-#### MVP EXAMPLE
+#### MVP 
 | Component | Priority | Estimated Time | Completion |
 | --- | :---: |  :---: | :---: | 
 | Terrains Window Clock | H | 1 hr | x |
@@ -27,14 +27,15 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Enemies | H | 2hr| x |
 | Collision and Hit Boxes| M | 3hr | x |
 | Unique mechanic | H | 5hrs| x |
-| Health Bar | L | 2hrs|   | 
 
 
 
-#### PostMVP EXAMPLE
+
+#### PostMVP 
 
 | Component | Priority | Estimated Time | Completion |
 | --- | :---: |  :---: | :---: |
+| Health Bar | L | 2hrs|   | 
 | Lore | H | 2hr |  | 
 | Make music and Assets | H | 2hr | x |
 | Collecting Items| H | 2hr | |
