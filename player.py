@@ -53,7 +53,7 @@ class Player(pygame.sprite.Sprite):
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
 
-        # this code creates sidesteps and jump action
+        # this code creates sidesteps and jump action these are unique mechanics that can be added or adjusted i.e. speed burst, slow etc..
        
         jumping = False
         jump_height = 10
