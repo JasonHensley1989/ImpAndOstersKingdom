@@ -139,7 +139,7 @@ class House(pygame.sprite.Sprite):
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
-        self.width, self.height = TILESIZE + 140, TILESIZE + 90
+        self.width, self.height = TILESIZE + 115, TILESIZE + 75
         self.image = self.game.housesheet.get_sprite(0, 800, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x = self.x
