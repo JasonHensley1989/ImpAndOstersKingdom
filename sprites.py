@@ -141,6 +141,71 @@ class Blue_House(pygame.sprite.Sprite):
         self.rect.x = self.x
         self.rect.y = self.y
 
+# creates a small pond
+class Pond(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.pond
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE + 60, TILESIZE + 60 
+        self.image = self.game.pond_spritesheet.get_sprite(65, 130, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+# creates a small island surrounded by water
+class Water_With_Island(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.water_with_island
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE + 100, TILESIZE + 70 
+        self.image = self.game.water_with_island_spritesheet.get_sprite(96, 352, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+# creates a Bridge over Water
+class Bridge_Over_Water(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.bridge_over_water
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE + 75, TILESIZE + 35 
+        self.image = self.game.bridge_over_water_spritesheet.get_sprite(3, 366, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+# creates water
+class Water(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.water
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width, self.height = TILESIZE, TILESIZE  
+        self.image = self.game.water_spritesheet.get_sprite(0, 0, self.width, self.height)
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+
 # This creates a button class for the menu options
 class Button:
     def __init__(self, x, y, width, height, fg, bg, content, fontsize):

@@ -26,3 +26,15 @@ def build_map(self, tilemap):
 
             if column == "B":
                 Blue_House(self, j, i)
+
+            if column == "A":
+                Pond(self, j, i)
+
+            if column == "I":
+                Water_With_Island(self, j, i)
+                
+            if column == "W":
+                Bridge_Over_Water(self, j, i)
+
+            if column == "O":
+                Water(self, j, i)

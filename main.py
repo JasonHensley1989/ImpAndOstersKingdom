@@ -12,14 +12,16 @@ from config import *
 # imports mixer for implementing music
 from pygame import K_w, mixer
 pygame.font.init()
-pygame.mixer.init()
-pygame.mixer.music.set_volume(0.1)
+
 # names window and game
 pygame.display.set_caption("Imp and Osters Kingdom")
 
 # background music
-mixer.music.load('AutumnLeaves.mp3')
-mixer.music.play(-1)
+# mixer.music.load('AutumnLeaves.mp3')
+# mixer.music.play(-1)
+# pygame.mixer.init()
+# pygame.mixer.music.set_volume(0.1)
+
 
 # Initializes game and creates clock to run game
 class Game():
@@ -57,7 +59,15 @@ class Game():
         self.intro_background = pygame.image.load('img/imps_background.png')
         # asset for character jump
         self.jumping_surface = pygame.transform.scale(pygame.image.load('img/Alex_run_16x16.png'), (30, 30))
-  
+        # asset for pond
+        self.pond_spritesheet = Spritesheet('img/B-C-D-E_Serene_Village_01.png')
+         # asset for water with island
+        self.water_with_island_spritesheet = Spritesheet('img/B-C-D-E_Serene_Village_01.png')
+        # asset for bridge over water
+        self.bridge_over_water_spritesheet = Spritesheet('img/B-C-D-E_Serene_Village_01.png')
+        # asset for bridge over water
+        self.water_spritesheet = Spritesheet('img/water_waves_32x32.gif')
+
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
@@ -72,6 +82,11 @@ class Game():
         self.blue_house = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
+        self.pond = pygame.sprite.LayeredUpdates()
+        self.water_with_island = pygame.sprite.LayeredUpdates()
+        self.bridge_over_water = pygame.sprite.LayeredUpdates()
+        self.water = pygame.sprite.LayeredUpdates()
+
         self.createTilemap(tilemap)
         
         
