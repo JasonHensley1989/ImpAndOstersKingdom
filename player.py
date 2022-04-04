@@ -132,6 +132,8 @@ class Player(pygame.sprite.Sprite):
         self.collide_water('y')
         self.collide_enemy('x')
         self.collide_enemy('y')
+        self.collide_pond('x')
+        self.collide_pond('y')
         # now the x and y need to be set back to zero so its not just the character moving
         self.x_change = 0
         self.y_change = 0
@@ -274,6 +276,35 @@ class Player(pygame.sprite.Sprite):
         
         if direction == 'y':
             hits = pygame.sprite.spritecollide(self, self.game.enemies, False)
+            if hits:
+                if self.y_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y += PLAYER_SPEED
+                    self.rect.y = hits[0].rect.top - self.rect.height
+                if self.y_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.y -= PLAYER_SPEED
+                    self.rect.y = hits[0].rect.bottom
+    # collision for pond
+    def collide_pond(self, direction):
+        
+        if direction == 'x':
+            # this will put it in enemy, and false make sure it doesnt destroy object when we hit it, it checks the left and right edges 
+            # of the image to see if collision is occuring if it is it stops it with the player speed
+            hits = pygame.sprite.spritecollide(self, self.game.pond, False)
+            if hits:
+                if self.x_change > 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x += PLAYER_SPEED
+                    self.rect.x = hits[0].rect.left - self.rect.width
+                if self.x_change < 0:
+                    for sprite in self.game.all_sprites:
+                        sprite.rect.x -= PLAYER_SPEED
+                    self.rect.x = hits[0].rect.right
+                
+        
+        if direction == 'y':
+            hits = pygame.sprite.spritecollide(self, self.game.pond, False)
             if hits:
                 if self.y_change > 0:
                     for sprite in self.game.all_sprites:
