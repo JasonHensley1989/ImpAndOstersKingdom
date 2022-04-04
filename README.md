@@ -55,4 +55,3 @@ Typically I put a code snippet here that I am particularly proud of. I chose ins
 
 | Fix Jump y axis bug |
 | left arrow causing char to disappear |
-| Collision boxes around enemies |
