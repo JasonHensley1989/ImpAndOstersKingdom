@@ -19,17 +19,17 @@ https://www.youtube.com/watch?v=cwWi05Icpw0&t=46s
 | Component | Priority | Estimated Time | Completion |
 | --- | :---: |  :---: | :---: | 
 | Terrains Window Clock | H | 1 hr | x |
-| Basic Movements and Key Presses | 1 H | hr | x |
-| Containing the player within boundaries | 2 H | hr | x |
+| Basic Movements and Key Presses | 1 H | 2hr | x |
+| Containing the player within boundaries |  H | 2hr | x |
 | Character Animation and Sprites| H | 4hr | x |
 | Optimization  | H | 1hr | x |  
 | Projectiles | H | 2hr| x |
 | Enemies | H | 2hr| x |
 | Collision and Hit Boxes| M | 3hr | x |
-| Unique mechanic | H | 3hrs| x |
-| Health Bar | L | 1hrs|   | 
+| Unique mechanic | H | 5hrs| x |
+| Health Bar | L | 2hrs|   | 
 
-- 19 Hours Total
+
 
 #### PostMVP EXAMPLE
 
