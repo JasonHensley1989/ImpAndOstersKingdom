@@ -93,6 +93,15 @@ class Player(pygame.sprite.Sprite):
                 if x_velocity < jump_height:
                     jumping = False
                     jump_height = y_gravity
+        # this is code for an actual jump all of these are based off the same mechanic as required for jump
+        if keys[pygame.K_x]:
+                jumping = True
+                if jumping:
+                    self.y_change -= y_velocity
+                    y_velocity -= y_gravity
+                if y_velocity < jump_height:
+                    jumping = False
+                    jump_height = y_gravity
 
 
 # this is where we make the animation in the character

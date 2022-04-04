@@ -109,9 +109,7 @@ class Game():
                     if self.player.facing == 'right':
                         Attack(self, self.player.rect.x  + TILESIZE, self.player.rect.y)
                 
-               
-            
-    
+                
     # defines update
     def update(self):
         self.all_sprites.update()
