@@ -271,8 +271,7 @@ class Player(pygame.sprite.Sprite):
                         sprite.rect.x -= PLAYER_SPEED
                     self.rect.x = hits[0].rect.right
                 
-        health -= 1
-        print("your ran into an enemy", health)
+        
         if direction == 'y':
             hits = pygame.sprite.spritecollide(self, self.game.enemies, False)
             if hits:
@@ -284,8 +283,7 @@ class Player(pygame.sprite.Sprite):
                     for sprite in self.game.all_sprites:
                         sprite.rect.y -= PLAYER_SPEED
                     self.rect.y = hits[0].rect.bottom
-        health -= 1
-        print("your ran into an enemy", health)  
+        
 # this function will allow attacks
 class Attack(pygame.sprite.Sprite):
         def __init__(self, game, x, y):
