@@ -7,18 +7,18 @@ import maps
 from sprites import *
 from config import *
 
+
 # imports mixer for implementing music
 from pygame import mixer
 pygame.font.init()
-
+pygame.mixer.init()
 # names window and game
 pygame.display.set_caption("Imp and Osters Kingdom")
 
 # background music
-# mixer.music.load('AutumnLeaves.mp3')
-# mixer.music.play(-1)
-# pygame.mixer.init()
-# pygame.mixer.music.set_volume(0.1)
+mixer.music.load('sounds/AutumnLeaves.mp3')
+mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.1)
 
 
 # Initializes game and creates clock to run game
