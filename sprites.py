@@ -155,7 +155,7 @@ class Blue_House(pygame.sprite.Sprite):
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
-        self.width, self.height = TILESIZE + 150, TILESIZE + 80
+        self.width, self.height = TILESIZE + 150, TILESIZE + 75
         self.image = self.game.blue_housesheet.get_sprite(5, 1200, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x = self.x
@@ -235,7 +235,7 @@ class Dirt(pygame.sprite.Sprite):
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
-        self.width, self.height = TILESIZE, TILESIZE  
+        self.width, self.height = TILESIZE,TILESIZE + 20 
         self.image = self.game.dirt_spritesheet.get_sprite(0, 65, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x = self.x
