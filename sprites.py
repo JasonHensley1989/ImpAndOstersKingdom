@@ -141,45 +141,6 @@ class Blue_House(pygame.sprite.Sprite):
         self.rect.x = self.x
         self.rect.y = self.y
 
-# creates dirt path
-class Dirt(pygame.sprite.Sprite):
-    def __init__(self, game, x, y):
-        self.game = game
-        self._layer = BLOCK_LAYER
-        self.groups = self.game.all_sprites, self.game.dirt
-        pygame.sprite.Sprite.__init__(self, self.groups)
-
-        self.x = x * TILESIZE
-        self.y = y * TILESIZE
-        self.width, self.height = TILESIZE, TILESIZE
-        self.image = self.game.dirt.get_sprite(175, 80, self.width, self.height)
-        self.rect = self.image.get_rect()
-        self.rect.x = self.x
-        self.rect.y = self.y
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # This creates a button class for the menu options
 class Button:
     def __init__(self, x, y, width, height, fg, bg, content, fontsize):

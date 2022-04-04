@@ -57,8 +57,7 @@ class Game():
         self.intro_background = pygame.image.load('img/imps_background.png')
         # asset for character jump
         self.jumping_surface = pygame.transform.scale(pygame.image.load('img/Alex_run_16x16.png'), (30, 30))
-        # asset for dirt
-        self.dirt = Spritesheet('img/Serene_Village_XP.png')
+  
 
     # creates tilemap, to place objects and borders
     def createTilemap(self, tilemap):
@@ -73,7 +72,6 @@ class Game():
         self.blue_house = pygame.sprite.LayeredUpdates()
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
-        self.dirt = pygame.sprite.LayeredUpdates()
         self.createTilemap(tilemap)
         
         
