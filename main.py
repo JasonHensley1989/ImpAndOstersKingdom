@@ -18,7 +18,7 @@ pygame.display.set_caption("Imp and Osters Kingdom")
 # background music
 mixer.music.load('sounds/AutumnLeaves.mp3')
 mixer.music.play(-1)
-pygame.mixer.music.set_volume(0.0)
+pygame.mixer.music.set_volume(0.2)
 
 
 # Initializes game and creates clock to run game
@@ -112,7 +112,7 @@ class Game():
                         Attack(self, self.player.rect.x  + TILESIZE, self.player.rect.y)
                 
                 
-    # defines update
+    # defines updates for sprites
     def update(self):
         self.all_sprites.update()
 
